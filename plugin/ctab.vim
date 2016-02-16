@@ -243,6 +243,7 @@ if ! exists('g:ctab_disable_checkalign') || g:ctab_disable_checkalign==0
     if indatabs*&tabstop + indaspace == indb
       let txtindent=repeat("\<Tab>",indatabs).repeat(' ',indaspace)
       call setline(a:line, substitute(getline(a:line),'^\s*',txtindent,''))
+      call cursor(0, indatabs*tskeep + indaspace)
     endif
     return ''
   endfun
